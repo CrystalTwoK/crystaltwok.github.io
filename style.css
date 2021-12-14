@@ -141,7 +141,7 @@ li:hover {
   margin-bottom: 0.5em;
   padding-bottom: 0.3em;
 }
-#mobile-keyboard {
+form #mobile-keyboard {
   width: 0px;
   height: 0px;
   position: absolute;

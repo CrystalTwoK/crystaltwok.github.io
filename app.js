@@ -501,3 +501,15 @@ textParent.addEventListener("click", () => {
     mobileKeyboard.focus();
   }
 });
+
+var input_field = document.getElementById("mobile-keyboard");
+input_field.addEventListener("textInput", function (ev) {
+  var char = ev.data; // In our example = "a"
+  var keyCode = char.charCodeAt(0); // a = 97
+  console.log(keyCode);
+});
+
+let submit = document.querySelector("#keyboard");
+submit.addEventListener("submit", () => {
+  console.log("SUBMITTED");
+});
