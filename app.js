@@ -297,10 +297,12 @@ function keyPressed(event) {
 function mobileKeyPresed(event) {
   console.log(event);
 }
-
+function mobileTextReset() {
+  mobileKeyboard.value = "";
+  text.innerText = mobileKeyboard.value;
+}
 //all enter key functions
 function formSubmission() {
-  mobileKeyboard.value = "";
   audio.g.play();
   audio.g.volume = 0.2;
   if (onWelcome == true) {
@@ -314,13 +316,7 @@ function formSubmission() {
       audio.g.volume = 0.2;
     }, 400);
   }
-  let str = text.innerText;
-  if (str.length > 0) {
-    for (let i = 0; i < str.length; i++) {
-      text.innerText = str.substring(0, 0);
-    }
-  }
-
+  mobileTextReset();
   return false; //do not submit the form
 }
 
