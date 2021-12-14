@@ -149,6 +149,12 @@ form #mobile-keyboard-button {
   top: -100em;
 }
 @media (max-width: 1024px) {
+  #home-p,
+  #section-about,
+  #section-projects {
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
   #loading-image {
     width: 100%;
     overflow: hidden;

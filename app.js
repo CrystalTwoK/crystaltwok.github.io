@@ -51,13 +51,13 @@ let specialKeys = [
 ];
 
 const help = `
-To navigate use the following commands:
+TO NAVIGATE USE THE FOLLOWING COMMANDS:
 01 - 'about' - brings you to the 'About Me' section.
 02 - 'projects' - brings you to the 'Projects' section.
 03 - 'contact' - brings you to the Contact form.
 04 - 'home' - brings you back to the Home
 
-Utility Commands:
+UTILITY COMMANDS:
 u01 - 'help' - shows the all the commands available.
 u02 - 'clear' - clears the home terminal from any command executed.
 u03 - 'logout' - goes back to the start.
@@ -317,6 +317,34 @@ function formSubmission() {
       audio.g.volume = 0.2;
     }, 400);
   }
+  //MOBILE COMMANDS
+  if (text.innerText.toLowerCase() == "logout") {
+    onWelcome = true;
+    setTimeout(() => {
+      welcomeScreen.classList.remove("inactive");
+      portfolioScreen.classList.add("inactive");
+      username.innerText = `INSERT YOUR USERNAME:`;
+      portfolioUsername.innerText = `USERNAME:`;
+      homeP.innerText = typeHelp;
+      audio.g.play();
+      audio.g.volume = 0.2;
+    }, 400);
+  } else if (text.innerText.toLowerCase() == "help") {
+    setTimeout(() => {
+      homeP.innerText = help;
+    }, 400);
+  } else if (text.innerText.toLowerCase() == "clear") {
+    setTimeout(() => {
+      homeP.innerText = typeHelp;
+    }, 400);
+  } else if (text.innerText.toLowerCase() == "home") {
+    openHome();
+  } else if (text.innerText.toLowerCase() == "about") {
+    openAboutMe();
+  } else if (text.innerText.toLowerCase() == "projects") {
+    openProjects();
+  }
+  //END MOBILE COMMANDS
   mobileTextReset();
   return false; //do not submit the form
 }
