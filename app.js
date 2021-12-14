@@ -299,6 +299,7 @@ function mobileKeyPresed(event) {
 }
 
 function formSubmission() {
+  mobileKeyboard.value = "";
   audio.g.play();
   audio.g.volume = 0.2;
   if (onWelcome == true) {
@@ -316,9 +317,9 @@ function formSubmission() {
   if (str.length > 0) {
     for (let i = 0; i < str.length; i++) {
       text.innerText = str.substring(0, 0);
-      mobileKeyboard.value = "";
     }
   }
+
   return false; //do not submit the form
 }
 
