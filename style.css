@@ -1,0 +1,153 @@
+:root {
+  --fallout-color: rgba(51, 208, 120, 0.8);
+}
+html,
+body {
+  height: 100%;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 16px;
+  color: var(--fallout-color);
+  padding: 0;
+  margin: 0;
+  line-height: 1.5em;
+}
+
+body {
+  /* background-color: #000; */
+  background: url("img/terminal_bg.png") no-repeat center center fixed;
+  background-size: cover;
+}
+p {
+  margin: 0;
+  text-shadow: 0 0 2px var(--fallout-color);
+}
+
+#loading-screen {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  place-items: center;
+  position: absolute;
+  background: url("img/terminal_bg.png") no-repeat center center fixed;
+  background-size: cover;
+  z-index: 2;
+  overflow: hidden;
+}
+#loading-screen.inactive {
+  display: none;
+}
+
+#screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 25px;
+  overflow: auto;
+}
+#input-box {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  left: 0;
+  right: 0;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#input-indicator {
+  line-height: 50px;
+  float: left;
+}
+#input-render {
+  height: 50px;
+}
+#input-render .input-render-content {
+  padding-left: 1.5em;
+  line-height: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: auto;
+  display: block;
+}
+#cursor {
+  margin-bottom: 0px;
+  display: inline-block;
+  animation-duration: 0.75s;
+  animation-name: caret-behavior;
+  animation-iteration-count: infinite;
+}
+.inactive {
+  display: none;
+}
+#welcome {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 25px;
+  overflow: auto;
+}
+@keyframes caret-behavior {
+  0% {
+    opacity: 0;
+    animation-delay: 0.25ms;
+  }
+  100% {
+    opacity: 1;
+    animation-delay: 0.25ms;
+  }
+}
+#current-section {
+  color: white;
+}
+#home-p {
+  line-height: normal;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+li {
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(56, 253, 56, 0);
+  text-shadow: 0 0 2px var(--fallout-color);
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease,
+    text-shadow 0.2s ease;
+}
+li:hover {
+  background-color: var(--fallout-color);
+  color: #000;
+  box-shadow: 0 0 2px var(--fallout-color);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.onFocus {
+  background-color: var(--fallout-color);
+  color: #000;
+  box-shadow: 0 0 2px var(--fallout-color);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+#section {
+  border-bottom: 2px solid var(--fallout-color);
+  margin-bottom: 0.5em;
+  padding-bottom: 0.3em;
+}
+
+@media (max-width: 1024px) {
+  #loading-image {
+    width: 100%;
+  }
+  ::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+}
