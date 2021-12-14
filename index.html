@@ -67,9 +67,9 @@
         </p>
       </div>
     </div>
-    <form>
-    <input type="text" id="mobile-keyboard" style='width: 1px; position: absolute;' name='keyboard'>
-    <input type="submit" value = 'ciao' id="mobile-keyboard" name="keyboard">
+    <form id="mobile-keyboard" onsubmit='return formSubmission()'>
+    <input type="text" id="mobile-keyboard-input">
+    <input type="submit" id="mobile-keyboard-button" name="mobile-keyboard-text">
   </form>
     
     <script src="./app.js"></script>

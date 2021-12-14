@@ -7,7 +7,7 @@ const homeP = document.querySelector("#home-p");
 const loadingScreen = document.querySelector("#loading-screen");
 const aboutMeText = document.querySelector("#section-about");
 const projectsText = document.querySelector("#section-projects");
-const mobileKeyboard = document.querySelector("#mobile-keyboard");
+const mobileKeyboard = document.querySelector("#mobile-keyboard-input");
 let text = document.querySelector("#input-text");
 let textParent = document.querySelector(".input-render-content");
 let username = document.querySelector("#username");
@@ -502,14 +502,13 @@ textParent.addEventListener("click", () => {
   }
 });
 
-var input_field = document.getElementById("mobile-keyboard");
+var input_field = document.getElementById("mobile-keyboard-input");
 input_field.addEventListener("textInput", function (ev) {
   var char = ev.data; // In our example = "a"
   var keyCode = char.charCodeAt(0); // a = 97
   console.log(keyCode);
 });
 
-let form = document.querySelector("form");
-form.addEventListener("submit", () => {
-  e.preventDefault();
-});
+function formSubmission() {
+  return false; //do not submit the form
+}
