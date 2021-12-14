@@ -350,7 +350,8 @@ function formSubmission() {
 }
 
 function randomKeySound() {
-  let randomSound = Math.floor(Math.random() * 6);
+  let randomSound = Math.floor(Math.random() * 6) + 1;
+  console.log(randomSound);
   switch (randomSound) {
     case 1:
       audio.a.play();
