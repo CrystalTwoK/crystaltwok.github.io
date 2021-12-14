@@ -294,6 +294,32 @@ function keyPressed(event) {
   }
 }
 
+function mobileKeyPresed(event) {
+  console.log(event);
+  if (event.code == "Enter") {
+    audio.g.play();
+    audio.g.volume = 0.2;
+    if (onWelcome == true) {
+      onWelcome = false;
+      username.innerText += ` ${text.innerText.toUpperCase()}`;
+      portfolioUsername.innerText += ` ${text.innerText.toUpperCase()}`;
+      setTimeout(() => {
+        welcomeScreen.classList.add("inactive");
+        portfolioScreen.classList.remove("inactive");
+        audio.g.play();
+        audio.g.volume = 0.2;
+      }, 400);
+    }
+    let str = text.innerText;
+    if (str.length > 0) {
+      for (let i = 0; i < str.length; i++) {
+        text.innerText = str.substring(0, 0);
+        mobileKeyboard.value = "";
+      }
+    }
+  }
+}
+
 function randomKeySound() {
   let randomSound = Math.floor(Math.random() * 6);
   switch (randomSound) {
@@ -371,7 +397,15 @@ function openProjects() {
 }
 
 window.addEventListener("keydown", (e) => {
-  keyPressed(e);
+  if (onMobile == false) {
+    keyPressed(e);
+  } else if (onMobile == true) {
+    mobileKeyPresed(e);
+  }
+});
+
+window.addEventListener("input", (e) => {
+  text.innerText = mobileKeyboard.value;
 });
 
 const home = document.querySelector("#home");
@@ -446,7 +480,24 @@ window.addEventListener("click", () => {
   cv.classList.remove("onFocus");
 });
 
+let onMobile = false;
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
+  // true for mobile device
+
+  onMobile = true;
+} else {
+  // false for not mobile device
+  console.log("not mobile device");
+  onMobile = false;
+}
+
 textParent.addEventListener("click", () => {
-  mobileKeyboard.focus();
-  console.log("mobile keyboard activated");
+  if (onMobile == true) {
+    console.log("mobile device");
+    mobileKeyboard.focus();
+  }
 });
