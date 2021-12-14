@@ -119,7 +119,7 @@ function keyPressed(event) {
         portfolioScreen.classList.remove("inactive");
         audio.g.play();
         audio.g.volume = 0.2;
-      }, 800);
+      }, 400);
     }
 
     //commands
@@ -133,15 +133,15 @@ function keyPressed(event) {
         homeP.innerText = typeHelp;
         audio.g.play();
         audio.g.volume = 0.2;
-      }, 800);
+      }, 400);
     } else if (text.innerText.toLowerCase() == "help") {
       setTimeout(() => {
         homeP.innerText = help;
-      }, 800);
+      }, 400);
     } else if (text.innerText.toLowerCase() == "clear") {
       setTimeout(() => {
         homeP.innerText = typeHelp;
-      }, 800);
+      }, 400);
     } else if (text.innerText.toLowerCase() == "home") {
       openHome();
     } else if (text.innerText.toLowerCase() == "about") {
@@ -333,7 +333,7 @@ function openHome() {
     currentSection.innerText = "HOME";
     audio.g.play();
     audio.g.volume = 0.2;
-  }, 800);
+  }, 400);
 }
 
 function openAboutMe() {
@@ -347,7 +347,7 @@ function openAboutMe() {
       audio.g.play();
       audio.g.volume = 0.2;
       homeP.innerText = typeHelp;
-    }, 800);
+    }, 400);
   }
 }
 
@@ -365,7 +365,7 @@ function openProjects() {
 
       audio.g.play();
       audio.g.volume = 0.2;
-    }, 800);
+    }, 400);
   }
 }
 
