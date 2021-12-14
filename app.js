@@ -7,6 +7,7 @@ const homeP = document.querySelector("#home-p");
 const loadingScreen = document.querySelector("#loading-screen");
 const aboutMeText = document.querySelector("#section-about");
 const projectsText = document.querySelector("#section-projects");
+const mobileKeyboard = document.querySelector("#mobile-keyboard");
 let text = document.querySelector("#input-text");
 let textParent = document.querySelector(".input-render-content");
 let username = document.querySelector("#username");
@@ -443,4 +444,9 @@ window.addEventListener("click", () => {
   projects.classList.remove("onFocus");
   contact.classList.remove("onFocus");
   cv.classList.remove("onFocus");
+});
+
+textParent.addEventListener("click", () => {
+  mobileKeyboard.focus();
+  console.log("mobile keyboard activated");
 });
