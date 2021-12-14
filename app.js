@@ -108,6 +108,8 @@ pageLoadChecker();
 
 function keyPressed(event) {
   if (event.code == "Enter") {
+    audio.g.play();
+    audio.g.volume = 0.2;
     if (onWelcome == true) {
       onWelcome = false;
       username.innerText += ` ${text.innerText.toUpperCase()}`;
@@ -175,6 +177,8 @@ function keyPressed(event) {
     }
     //DELETE CHARS
   } else if (event.code == "Backspace") {
+    audio.g.play();
+    audio.g.volume = 0.2;
     let str = text.innerText;
     if (str.length > 0) {
       text.innerText = str.substring(0, str.length - 1);
@@ -284,7 +288,38 @@ function keyPressed(event) {
       onContact = false;
       cv.classList.remove("onFocus");
       onCV = false;
+      randomKeySound();
     }
+  }
+}
+
+function randomKeySound() {
+  let randomSound = Math.floor(Math.random() * 6);
+  switch (randomSound) {
+    case 1:
+      audio.a.play();
+      audio.a.volume = 0.2;
+      break;
+    case 2:
+      audio.b.play();
+      audio.b.volume = 0.2;
+      break;
+    case 3:
+      audio.c.play();
+      audio.c.volume = 0.2;
+      break;
+    case 4:
+      audio.d.play();
+      audio.d.volume = 0.2;
+      break;
+    case 5:
+      audio.e.play();
+      audio.e.volume = 0.2;
+      break;
+    case 6:
+      audio.f.play();
+      audio.f.volume = 0.2;
+      break;
   }
 }
 
@@ -335,35 +370,6 @@ function openProjects() {
 }
 
 window.addEventListener("keydown", (e) => {
-  if (e.code != "backspace" || e.code == "Space") {
-    let randomSound = Math.floor(Math.random() * 6);
-    switch (randomSound) {
-      case 1:
-        audio.a.play();
-        audio.a.volume = 0.2;
-        break;
-      case 2:
-        audio.b.play();
-        audio.b.volume = 0.2;
-        break;
-      case 3:
-        audio.c.play();
-        audio.c.volume = 0.2;
-        break;
-      case 4:
-        audio.d.play();
-        audio.d.volume = 0.2;
-        break;
-      case 5:
-        audio.e.play();
-        audio.e.volume = 0.2;
-        break;
-      case 6:
-        audio.f.play();
-        audio.f.volume = 0.2;
-        break;
-    }
-  }
   keyPressed(e);
 });
 
