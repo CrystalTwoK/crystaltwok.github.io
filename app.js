@@ -298,6 +298,7 @@ function mobileKeyPresed(event) {
   console.log(event);
 }
 
+//all enter key functions
 function formSubmission() {
   mobileKeyboard.value = "";
   audio.g.play();
@@ -408,6 +409,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("input", (e) => {
+  randomSound();
   text.innerText = mobileKeyboard.value;
 });
 
@@ -489,18 +491,13 @@ if (
     navigator.userAgent
   )
 ) {
-  // true for mobile device
-
   onMobile = true;
 } else {
-  // false for not mobile device
-  console.log("not mobile device");
   onMobile = false;
 }
 
 textParent.addEventListener("click", () => {
   if (onMobile == true) {
-    console.log("mobile device");
     mobileKeyboard.focus();
   }
 });
@@ -511,4 +508,3 @@ input_field.addEventListener("textInput", function (ev) {
   var keyCode = char.charCodeAt(0); // a = 97
   console.log(keyCode);
 });
-//all enter key functions
