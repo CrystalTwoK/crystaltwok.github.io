@@ -409,7 +409,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("input", (e) => {
-  randomSound();
+  randomKeySound();
   text.innerText = mobileKeyboard.value;
 });
 
@@ -500,11 +500,4 @@ textParent.addEventListener("click", () => {
   if (onMobile == true) {
     mobileKeyboard.focus();
   }
-});
-
-var input_field = document.getElementById("mobile-keyboard-input");
-input_field.addEventListener("textInput", function (ev) {
-  var char = ev.data; // In our example = "a"
-  var keyCode = char.charCodeAt(0); // a = 97
-  console.log(keyCode);
 });
