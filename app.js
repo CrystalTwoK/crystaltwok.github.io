@@ -296,28 +296,30 @@ function keyPressed(event) {
 
 function mobileKeyPresed(event) {
   console.log(event);
-  if (event.code == "Enter") {
-    audio.g.play();
-    audio.g.volume = 0.2;
-    if (onWelcome == true) {
-      onWelcome = false;
-      username.innerText += ` ${text.innerText.toUpperCase()}`;
-      portfolioUsername.innerText += ` ${text.innerText.toUpperCase()}`;
-      setTimeout(() => {
-        welcomeScreen.classList.add("inactive");
-        portfolioScreen.classList.remove("inactive");
-        audio.g.play();
-        audio.g.volume = 0.2;
-      }, 400);
-    }
-    let str = text.innerText;
-    if (str.length > 0) {
-      for (let i = 0; i < str.length; i++) {
-        text.innerText = str.substring(0, 0);
-        mobileKeyboard.value = "";
-      }
+}
+
+function formSubmission() {
+  audio.g.play();
+  audio.g.volume = 0.2;
+  if (onWelcome == true) {
+    onWelcome = false;
+    username.innerText += ` ${text.innerText.toUpperCase()}`;
+    portfolioUsername.innerText += ` ${text.innerText.toUpperCase()}`;
+    setTimeout(() => {
+      welcomeScreen.classList.add("inactive");
+      portfolioScreen.classList.remove("inactive");
+      audio.g.play();
+      audio.g.volume = 0.2;
+    }, 400);
+  }
+  let str = text.innerText;
+  if (str.length > 0) {
+    for (let i = 0; i < str.length; i++) {
+      text.innerText = str.substring(0, 0);
+      mobileKeyboard.value = "";
     }
   }
+  return false; //do not submit the form
 }
 
 function randomKeySound() {
@@ -508,7 +510,4 @@ input_field.addEventListener("textInput", function (ev) {
   var keyCode = char.charCodeAt(0); // a = 97
   console.log(keyCode);
 });
-
-function formSubmission() {
-  return false; //do not submit the form
-}
+//all enter key functions
