@@ -509,7 +509,7 @@ input_field.addEventListener("textInput", function (ev) {
   console.log(keyCode);
 });
 
-let submit = document.querySelector("#keyboard");
-submit.addEventListener("submit", () => {
-  console.log("SUBMITTED");
+let form = document.querySelector("form");
+form.addEventListener("submit", () => {
+  e.preventDefault();
 });
