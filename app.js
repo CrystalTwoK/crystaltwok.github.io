@@ -303,6 +303,7 @@ function mobileTextReset() {
 }
 //all enter key functions
 function formSubmission() {
+  mobileKeyboard.blur();
   audio.g.play();
   audio.g.volume = 0.2;
   if (onWelcome == true) {
