@@ -161,7 +161,7 @@ function keyPressed(event) {
     };
 
     const commandText = text.innerText.toLowerCase();
-    commands[commandText]();
+    commands[commandText];
     // end of commands
 
     //Menu click with Enter
