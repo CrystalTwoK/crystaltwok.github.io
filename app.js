@@ -52,10 +52,11 @@ let specialKeys = [
 
 const help = `
 TO NAVIGATE USE THE FOLLOWING COMMANDS:
-01 - 'about' - brings you to the 'About Me' section.
-02 - 'projects' - brings you to the 'Projects' section.
-03 - 'contact' - brings you to the Contact form.
-04 - 'home' - brings you back to the Home
+01 - 'home' - brings you back to the Home
+02 - 'about' - brings you to the 'About Me' section.
+03 - 'projects' - brings you to the 'Projects' section.
+04 - 'contact' - brings you to the Contact form.
+05 - 'cv' - download my resume
 
 UTILITY COMMANDS:
 u01 - 'help' - shows the all the commands available.
@@ -124,32 +125,42 @@ function keyPressed(event) {
     }
 
     //commands
-    if (text.innerText.toLowerCase() == "logout") {
-      onWelcome = true;
-      setTimeout(() => {
-        welcomeScreen.classList.remove("inactive");
-        portfolioScreen.classList.add("inactive");
-        username.innerText = `INSERT YOUR USERNAME:`;
-        portfolioUsername.innerText = `USERNAME:`;
-        homeP.innerText = typeHelp;
-        audio.g.play();
-        audio.g.volume = 0.2;
-      }, 400);
-    } else if (text.innerText.toLowerCase() == "help") {
-      setTimeout(() => {
-        homeP.innerText = help;
-      }, 400);
-    } else if (text.innerText.toLowerCase() == "clear") {
-      setTimeout(() => {
-        homeP.innerText = typeHelp;
-      }, 400);
-    } else if (text.innerText.toLowerCase() == "home") {
-      openHome();
-    } else if (text.innerText.toLowerCase() == "about") {
-      openAboutMe();
-    } else if (text.innerText.toLowerCase() == "projects") {
-      openProjects();
-    }
+    const commands = {
+      logout: () => {
+        onWelcome = true;
+        setTimeout(() => {
+          welcomeScreen.classList.remove("inactive");
+          portfolioScreen.classList.add("inactive");
+          username.innerText = `INSERT YOUR USERNAME:`;
+          portfolioUsername.innerText = `USERNAME:`;
+          homeP.innerText = typeHelp;
+          audio.g.play();
+          audio.g.volume = 0.2;
+        }, 400);
+      },
+      help: () => {
+        setTimeout(() => {
+          homeP.innerText = help;
+        }, 400);
+      },
+      clear: () => {
+        setTimeout(() => {
+          homeP.innerText = typeHelp;
+        }, 400);
+      },
+      home: () => {
+        openHome();
+      },
+      about: () => {
+        openAboutMe();
+      },
+      projects: () => {
+        openProjects();
+      },
+    };
+
+    const commandText = text.innerText.toLowerCase();
+    commands[commandText]();
     // end of commands
 
     //Menu click with Enter
