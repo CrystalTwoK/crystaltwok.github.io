@@ -116,6 +116,7 @@ function keyPressed(event) {
       onWelcome = false;
       username.innerText += ` ${text.innerText.toUpperCase()}`;
       portfolioUsername.innerText += ` ${text.innerText.toUpperCase()}`;
+      text.innerText = "";
       setTimeout(() => {
         welcomeScreen.classList.add("inactive");
         portfolioScreen.classList.remove("inactive");
