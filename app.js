@@ -52,11 +52,10 @@ let specialKeys = [
 
 const help = `
 TO NAVIGATE USE THE FOLLOWING COMMANDS:
-01 - 'home' - brings you back to the Home
-02 - 'about' - brings you to the 'About Me' section.
-03 - 'projects' - brings you to the 'Projects' section.
-04 - 'contact' - brings you to the Contact form.
-05 - 'cv' - download my resume
+01 - 'about' - brings you to the 'About Me' section.
+02 - 'projects' - brings you to the 'Projects' section.
+03 - 'contact' - brings you to the Contact form.
+04 - 'home' - brings you back to the Home
 
 UTILITY COMMANDS:
 u01 - 'help' - shows the all the commands available.
@@ -116,7 +115,6 @@ function keyPressed(event) {
       onWelcome = false;
       username.innerText += ` ${text.innerText.toUpperCase()}`;
       portfolioUsername.innerText += ` ${text.innerText.toUpperCase()}`;
-      text.innerText = "";
       setTimeout(() => {
         welcomeScreen.classList.add("inactive");
         portfolioScreen.classList.remove("inactive");
@@ -126,42 +124,32 @@ function keyPressed(event) {
     }
 
     //commands
-    const commands = {
-      logout: () => {
-        onWelcome = true;
-        setTimeout(() => {
-          welcomeScreen.classList.remove("inactive");
-          portfolioScreen.classList.add("inactive");
-          username.innerText = `INSERT YOUR USERNAME:`;
-          portfolioUsername.innerText = `USERNAME:`;
-          homeP.innerText = typeHelp;
-          audio.g.play();
-          audio.g.volume = 0.2;
-        }, 400);
-      },
-      help: () => {
-        setTimeout(() => {
-          homeP.innerText = help;
-        }, 400);
-      },
-      clear: () => {
-        setTimeout(() => {
-          homeP.innerText = typeHelp;
-        }, 400);
-      },
-      home: () => {
-        openHome();
-      },
-      about: () => {
-        openAboutMe();
-      },
-      projects: () => {
-        openProjects();
-      },
-    };
-
-    const commandText = text.innerText.toLowerCase();
-    commands[commandText];
+    if (text.innerText.toLowerCase() == "logout") {
+      onWelcome = true;
+      setTimeout(() => {
+        welcomeScreen.classList.remove("inactive");
+        portfolioScreen.classList.add("inactive");
+        username.innerText = `INSERT YOUR USERNAME:`;
+        portfolioUsername.innerText = `USERNAME:`;
+        homeP.innerText = typeHelp;
+        audio.g.play();
+        audio.g.volume = 0.2;
+      }, 400);
+    } else if (text.innerText.toLowerCase() == "help") {
+      setTimeout(() => {
+        homeP.innerText = help;
+      }, 400);
+    } else if (text.innerText.toLowerCase() == "clear") {
+      setTimeout(() => {
+        homeP.innerText = typeHelp;
+      }, 400);
+    } else if (text.innerText.toLowerCase() == "home") {
+      openHome();
+    } else if (text.innerText.toLowerCase() == "about") {
+      openAboutMe();
+    } else if (text.innerText.toLowerCase() == "projects") {
+      openProjects();
+    }
     // end of commands
 
     //Menu click with Enter
@@ -199,7 +187,6 @@ function keyPressed(event) {
     //MENU ARROW NAVIGATION
   } else if (event.code == "ArrowUp") {
     if (!onAbout && !onProjects && !onContact && !onCV && !onHome) {
-      console.log(event.code);
       onCV = true;
       cv.classList.add("onFocus");
       audio.a.play();
@@ -242,7 +229,6 @@ function keyPressed(event) {
       !onHome &&
       home.classList != "inactive"
     ) {
-      console.log(event.code);
       onHome = true;
       home.classList.add("onFocus");
       audio.a.play();
@@ -290,7 +276,6 @@ function keyPressed(event) {
     }
     if (!specialChar) {
       text.innerText += event.key;
-      console.log(event.code);
       home.classList.remove("onFocus");
       onHome = false;
       about.classList.remove("onFocus");
@@ -307,12 +292,13 @@ function keyPressed(event) {
 }
 
 function mobileKeyPresed(event) {
-  console.log(event);
+  console.log("Mobile: " + event);
 }
 function mobileTextReset() {
   mobileKeyboard.value = "";
   text.innerText = mobileKeyboard.value;
 }
+
 //all enter key functions
 function formSubmission() {
   mobileKeyboard.blur();
@@ -329,6 +315,7 @@ function formSubmission() {
       audio.g.volume = 0.2;
     }, 400);
   }
+
   //MOBILE COMMANDS
   if (text.innerText.toLowerCase() == "logout") {
     onWelcome = true;
@@ -357,6 +344,7 @@ function formSubmission() {
     openProjects();
   }
   //END MOBILE COMMANDS
+
   mobileTextReset();
   return false; //do not submit the form
 }
