@@ -1,5 +1,5 @@
 :root {
-  --fallout-color: rgb(43, 202, 112);
+  --fallout-color: #63bf1c;
 }
 ::selection{
   background-color: var(--fallout-color);
