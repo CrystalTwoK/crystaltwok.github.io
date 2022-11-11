@@ -317,7 +317,7 @@ function formSubmission() {
   }
 
   //MOBILE COMMANDS
-  if (text.innerText.toLowerCase() == "logout") {
+  if (text.innerText.toLowerCase() == "logout" || "u03") {
     onWelcome = true;
     setTimeout(() => {
       welcomeScreen.classList.remove("inactive");
@@ -328,20 +328,23 @@ function formSubmission() {
       audio.g.play();
       audio.g.volume = 0.2;
     }, 400);
-  } else if (text.innerText.toLowerCase() == "help") {
+  } else if (text.innerText.toLowerCase() == "help" || "u01") {
     setTimeout(() => {
       homeP.innerText = help;
     }, 400);
-  } else if (text.innerText.toLowerCase() == "clear") {
+  } else if (text.innerText.toLowerCase() == "clear" || "u02") {
     setTimeout(() => {
       homeP.innerText = typeHelp;
     }, 400);
-  } else if (text.innerText.toLowerCase() == "home") {
+  } else if (text.innerText.toLowerCase() == "home" || "04") {
     openHome();
-  } else if (text.innerText.toLowerCase() == "about") {
+  } else if (text.innerText.toLowerCase() == "about" || "01") {
     openAboutMe();
-  } else if (text.innerText.toLowerCase() == "projects") {
+  } else if (text.innerText.toLowerCase() == "projects" || "02") {
     openProjects();
+  } else {
+    homeP.innerText ==
+      "Command Error! Type `help` to see the available commands!";
   }
   //END MOBILE COMMANDS
 
