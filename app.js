@@ -317,7 +317,10 @@ function formSubmission() {
   }
 
   //MOBILE COMMANDS
-  if (text.innerText.toLowerCase() == "logout" || "u03") {
+  if (
+    text.innerText.toLowerCase() == "logout" ||
+    text.innerText.toLowerCase() == "u03"
+  ) {
     onWelcome = true;
     setTimeout(() => {
       welcomeScreen.classList.remove("inactive");
@@ -328,19 +331,34 @@ function formSubmission() {
       audio.g.play();
       audio.g.volume = 0.2;
     }, 400);
-  } else if (text.innerText.toLowerCase() == "help" || "u01") {
+  } else if (
+    text.innerText.toLowerCase() == "help" ||
+    text.innerText.toLowerCase() == "u01"
+  ) {
     setTimeout(() => {
       homeP.innerText = help;
     }, 400);
-  } else if (text.innerText.toLowerCase() == "clear" || "u02") {
+  } else if (
+    text.innerText.toLowerCase() == "clear" ||
+    text.innerText.toLowerCase() == "u02"
+  ) {
     setTimeout(() => {
       homeP.innerText = typeHelp;
     }, 400);
-  } else if (text.innerText.toLowerCase() == "home" || "04") {
+  } else if (
+    text.innerText.toLowerCase() == "home" ||
+    text.innerText.toLowerCase() == "04"
+  ) {
     openHome();
-  } else if (text.innerText.toLowerCase() == "about" || "01") {
+  } else if (
+    text.innerText.toLowerCase() == "about" ||
+    text.innerText.toLowerCase() == "01"
+  ) {
     openAboutMe();
-  } else if (text.innerText.toLowerCase() == "projects" || "02") {
+  } else if (
+    text.innerText.toLowerCase() == "projects" ||
+    text.innerText.toLowerCase() == "02"
+  ) {
     openProjects();
   } else {
     homeP.innerText ==
