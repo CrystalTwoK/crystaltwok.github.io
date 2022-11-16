@@ -85,6 +85,25 @@ let audio = {
   l: new Audio("./sounds/charenter_03.wav"),
 };
 
+//forced fullscreen
+const forcedFS = true;
+
+if (forceFS) {
+  openFullscreen();
+}
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
 //menu focus position
 let onHome = false;
 let onAbout = false;
