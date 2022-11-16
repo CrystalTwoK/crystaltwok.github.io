@@ -124,7 +124,10 @@ function keyPressed(event) {
     }
 
     //commands
-    if (text.innerText.toLowerCase() == "logout") {
+    if (
+      text.innerText.toLowerCase() == "logout" ||
+      text.innerText.toLowerCase() == "u03"
+    ) {
       onWelcome = true;
       setTimeout(() => {
         welcomeScreen.classList.remove("inactive");
@@ -135,20 +138,38 @@ function keyPressed(event) {
         audio.g.play();
         audio.g.volume = 0.2;
       }, 400);
-    } else if (text.innerText.toLowerCase() == "help") {
+    } else if (
+      text.innerText.toLowerCase() == "help" ||
+      text.innerText.toLowerCase() == "u01"
+    ) {
       setTimeout(() => {
         homeP.innerText = help;
       }, 400);
-    } else if (text.innerText.toLowerCase() == "clear") {
+    } else if (
+      text.innerText.toLowerCase() == "clear" ||
+      text.innerText.toLowerCase() == "u02"
+    ) {
       setTimeout(() => {
         homeP.innerText = typeHelp;
       }, 400);
-    } else if (text.innerText.toLowerCase() == "home") {
+    } else if (
+      text.innerText.toLowerCase() == "home" ||
+      text.innerText.toLowerCase() == "04"
+    ) {
       openHome();
-    } else if (text.innerText.toLowerCase() == "about") {
+    } else if (
+      text.innerText.toLowerCase() == "about" ||
+      text.innerText.toLowerCase() == "01"
+    ) {
       openAboutMe();
-    } else if (text.innerText.toLowerCase() == "projects") {
+    } else if (
+      text.innerText.toLowerCase() == "projects" ||
+      text.innerText.toLowerCase() == "02"
+    ) {
       openProjects();
+    } else {
+      homeP.innerText ==
+        "Command Error! Type `help` to see the available commands!";
     }
     // end of commands
 
